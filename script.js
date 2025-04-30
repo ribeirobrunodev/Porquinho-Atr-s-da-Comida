@@ -17,7 +17,7 @@ function iniciarJogo() {
   document.getElementById("gameOver").style.display = "none";
 
   const ovo = document.getElementById("ovo");
-  let duracaoAnimacao = window.innerWidth <= 768 ? 0.9 : 1.6;
+  let duracaoAnimacao = window.innerWidth <= 768 ? 0.9 : 1.2;
   ovo.style.animation = `moverOvo ${duracaoAnimacao}s linear infinite`;
 
   intervaloTempo = setInterval(() => {

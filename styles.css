@@ -219,22 +219,22 @@ html, body {
 
 /* Alerta para girar a tela no modo paisagem em dispositivos pequenos */
 
-@media (orientation: landscape) and (max-width: 768px) {
+@media (orientation: portrait) {
   body::before {
-    content: "Gire o dispositivo para o modo retrato para jogar";
+    content: "Por favor, gire o dispositivo para o modo paisagem para jogar.";
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
     font-size: 24px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 10000;
+    justify-content: center;
     text-align: center;
+    z-index: 9999;
     padding: 20px;
   }
 
@@ -242,3 +242,4 @@ html, body {
     display: none;
   }
 }
+

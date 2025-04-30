@@ -109,6 +109,7 @@ function handleBtnPulo() {
 }
 
 
+// Pulo com barra de espaço no teclado
 document.addEventListener("keydown", (e) => {
   if (e.code === "Space" && jogoAtivo) {
     const pintinho = document.getElementById("pintinho");
@@ -117,5 +118,13 @@ document.addEventListener("keydown", (e) => {
       pintinho.classList.add("pular");
       setTimeout(() => pintinho.classList.remove("pular"), 600);
     }
+  }
+});
+
+// Toque em qualquer lugar da tela (exceto botões) para pular
+document.addEventListener("touchstart", (e) => {
+  const isButton = e.target.closest("#btnPulo, #btnIniciar, #btnReiniciar");
+  if (!isButton) {
+    handleBtnPulo();
   }
 });

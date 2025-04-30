@@ -218,6 +218,7 @@ html, body {
 }
 
 /* Alerta para girar a tela no modo paisagem em dispositivos pequenos */
+
 @media (orientation: landscape) and (max-width: 768px) {
   body::before {
     content: "Gire o dispositivo para o modo retrato para jogar";
@@ -241,4 +242,3 @@ html, body {
     display: none;
   }
 }
-

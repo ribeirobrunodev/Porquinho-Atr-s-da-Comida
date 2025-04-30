@@ -215,29 +215,30 @@ html, body {
   #btnPulo:active {
     background-color: #f57c00;
   }
-
-  @media (orientation: landscape) and (max-width: 768px) {
-    body::before {
-      content: "Gire o dispositivo para o modo retrato para jogar";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.8);
-      color: white;
-      font-size: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-      text-align: center;
-      padding: 20px;
-    }
-  
-    #jogo {
-      display: none;
-    }
-  }
-  
 }
+
+/* Alerta para girar a tela no modo paisagem em dispositivos pequenos */
+@media (orientation: landscape) and (max-width: 768px) {
+  body::before {
+    content: "Gire o dispositivo para o modo retrato para jogar";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    text-align: center;
+    padding: 20px;
+  }
+
+  #jogo {
+    display: none;
+  }
+}
+

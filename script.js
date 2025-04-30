@@ -17,14 +17,17 @@ function iniciarJogo() {
   document.getElementById("gameOver").style.display = "none";
 
   const ovo = document.getElementById("ovo");
-  let duracaoAnimacao = window.innerWidth <= 768 ? 0.9 : 1.6;
+  let duracaoAnimacao = window.innerWidth <= 768 ? 0.9 : 1.2;
   ovo.style.animation = `moverOvo ${duracaoAnimacao}s linear infinite`;
 
+
+  
   intervaloTempo = setInterval(() => {
     segundos++;
     const minutos = String(Math.floor(segundos / 60)).padStart(2, '0');
     const seg = String(segundos % 60).padStart(2, '0');
     document.getElementById("relogio").innerText = `${minutos}:${seg}`;
+   // ajustarDificuldade(); // ← aqui chamamos para dificultar gradualmente
   }, 1000);
 
   intervaloObstaculo = setInterval(() => {
@@ -126,3 +129,15 @@ document.addEventListener("touchstart", (e) => {
     handleBtnPulo();
   }
 });
+
+//function ajustarDificuldade() {
+//  const ovo = document.getElementById("ovo");
+
+  // Quanto mais tempo passa, menor o tempo da animação (limite mínimo: 0.6s)
+ // let novaDuracao = Math.max(0.6, 1.6 - segundos * 0.02); // reduz 0.02s por segundo
+ // if (window.innerWidth <= 768) {
+  //  novaDuracao = Math.max(0.5, 1.0 - segundos * 0.02); // ainda mais rápido em telas pequenas
+ // }
+
+ // ovo.style.animation = `moverOvo ${novaDuracao}s linear infinite`;
+//}

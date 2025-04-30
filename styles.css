@@ -1,0 +1,243 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  background-image: url('/imagem/1847.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#jogo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  height: 100dvh; /* em vez de 100vh */
+}
+
+#pintinho {
+  position: absolute;
+  bottom: 5px;
+  left: 100px;
+  width: 200px;
+  height: 200px;
+  background-image: url('/imagem/pig-418_512.gif');
+  background-size: cover;
+  z-index: 2;
+}
+
+#ovo {
+  position: absolute;
+  bottom: 5px;
+  right: -40px;
+  width: 80px;
+  height: 100px;
+  background-image: url('/imagem/2.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+#chao {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 10px;
+  background: repeating-linear-gradient(
+    to right,
+    #c0ae0e 0px,
+    #1d1b1b 100px,
+    #1a1a1a 20px,
+    #131212 3px
+  );
+  animation: moverChao 5s linear infinite;
+  z-index: 1;
+  opacity: 0.9;
+  border-top: 1px solid #333;
+}
+
+@keyframes moverChao {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+#pontuacao {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 1px 1px 2px black;
+}
+
+#relogio {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+
+#btnIniciar, #btnReiniciar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #388e3c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#btnIniciar:hover, #btnReiniciar:hover {
+  background-color: #2e7d32;
+}
+
+.pular {
+  animation: pulo 0.8s ease-out;
+}
+
+@keyframes pulo {
+  0% { bottom: 5px; }
+  50% { bottom: 180px; }
+  100% { bottom: 5px; }
+}
+
+@keyframes moverOvo {
+  0% { right: -40px; }
+  100% { right: 100%; }
+}
+
+#gameOver {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: red;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px black;
+  z-index: 999;
+}
+@media (max-width: 600px) {
+  #pintinho {
+    width: 120px;
+    height: 120px;
+    left: 30px;
+  }
+
+  #ovo {
+    width: 50px;
+    height: 70px;
+  }
+
+  #pontuacao {
+    font-size: 18px;
+    top: 5px;
+  }
+
+  #relogio {
+    font-size: 18px;
+    top: 5px;
+    right: 5px;
+  }
+
+  #btnIniciar, #btnReiniciar {
+    font-size: 14px;
+    padding: 8px 16px;
+    bottom: 10px;
+  }
+
+  #gameOver {
+    font-size: 32px;
+  }
+}   
+
+#btnPulo {
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+#btnPulo:active {
+  background-color: #f57c00;
+}
+
+@media (max-width: 600px) {
+  #btnPulo {
+    padding: 10px 16px;
+    font-size: 16px;
+    bottom: 70px;
+    right: 10px;
+  }
+}
+
+/* Oculta o botão em telas grandes */
+#btnPulo {
+  display: none;
+}
+
+/* Exibe o botão apenas em telas pequenas */
+@media (max-width: 768px) {
+  #btnPulo {
+    display: block;
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    z-index: 10;
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #ff9800;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+
+  #btnPulo:active {
+    background-color: #f57c00;
+  }
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    body::before {
+      content: "Gire o dispositivo para o modo retrato para jogar";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    #jogo {
+      display: none;
+    }
+  }
+  
+}

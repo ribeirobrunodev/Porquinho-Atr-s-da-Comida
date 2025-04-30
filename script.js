@@ -50,7 +50,7 @@ function iniciarJogo() {
       clearInterval(intervaloTempo);
 
       // Trocar imagens
-      pintinho.style.backgroundImage = "url('/imagem/esqueleto.gif')";
+      pintinho.style.backgroundImage = "url('./imagem/esqueleto.gif')";
       ovo.style.backgroundImage = "url('ovo-quebrado.png')";
 
       // Mostrar "Game Over"
@@ -68,8 +68,8 @@ function reiniciarJogo() {
   const ovo = document.getElementById("ovo");
 
   // Resetar imagens
-  pintinho.style.backgroundImage = "url('/imagem/pig-418_512.gif')";
-  ovo.style.backgroundImage = "url('/imagem/2.gif')";
+  pintinho.style.backgroundImage = "url('./imagem/pig-418_512.gif')";
+  ovo.style.backgroundImage = "url('./imagem/2.gif')";
   ovo.style.right = "-40px";
   ovo.style.animation = "none";
 
